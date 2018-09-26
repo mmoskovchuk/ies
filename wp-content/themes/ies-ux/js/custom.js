@@ -2,7 +2,7 @@
 
 //SCROLL TOP BUTTON
 //-------------------------------------------------
-/*(function ($) {
+(function ($) {
  var findWindowHeight = function () {
  return windowHeight = $(window).height();
  };
@@ -19,7 +19,7 @@
  var scrollPage = function () {
  $('body, html').animate({
  scrollTop: 0
- }, 800);
+ }, 50);
  };
 
  var windowHeight = findWindowHeight();
@@ -28,12 +28,10 @@
  $(window).resize(findWindowHeight);
 
  $('body').on('click', '#scrollButton', scrollPage);
- })(jQuery);*/
+ })(jQuery);
 
-
-/*NEW JS*/
-/*-------------------------------------------------------------------*/
-
+//SLIDER FRONT
+//-------------------------------------------------
 
 $(document).ready(function () {
     $('.top-block__slider').slick({
@@ -50,8 +48,8 @@ $(document).ready(function () {
     });
 });
 
-
-//sidebar menu
+//SIDEBAR MENU
+//-------------------------------------------------
 
 $("#sidebar-nav > ul > li > a").click(function (e) {
     $("#sidebar-nav li > ul").slideUp(),
@@ -65,21 +63,4 @@ $("#sidebar-nav > ul > li > a").click(function (e) {
 
         e.stopPropagation();
 });
-
-//preloader
-/*
-if(window.location.pathname=='/'){
-    $(window).on('load', function () {
-        var $preloader = jQuery('#page-preloader'),
-            $spinner   = $preloader.find('.spinner');
-        $spinner.fadeOut();
-        $preloader.delay(500).fadeOut('slow');
-    });
-
-} else {
-    var $preloader = jQuery('#page-preloader'),
-        $spinner   = $preloader.find('.spinner');
-    //$spinner.fadeOut();
-    $preloader.remove();
-}*/
 

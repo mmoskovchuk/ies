@@ -1,18 +1,17 @@
 .footer {
   &__top {
-    background-color: #d4d4d4;
-    padding: 10px 0;
+    background-color: #303030;
     &-block {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      padding: 0;
       font-family: @roboto;
       font-size: 14px;
-      color: @c2;
+      color: @c5;
+      padding: 10px 0;
       &:last-child {
         align-items: flex-end;
-        box-shadow: 1px 0 0 #f1f1f1 inset, 2px 0 0 #c4c4c4 inset;
+        box-shadow: 1px 0 0 #454545 inset, 2px 0 0 #202020 inset;
       }
       > div {
         width: auto;
@@ -23,12 +22,11 @@
       }
     }
   }
-  &__middle {
-    background-color: #a8a8a8;
-    padding: 10px 0;
-  }
   &__bottom {
     padding: 10px 0;
-    background-color: #2a2a2a;
+    background-color: #252525;
+    > div {
+      text-align: center;
+    }
   }
 }

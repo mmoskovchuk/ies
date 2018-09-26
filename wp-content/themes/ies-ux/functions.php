@@ -157,8 +157,6 @@ add_filter('login_errors',create_function('$a', "return null;"));
 register_nav_menus( array(
     'nav' => 'Navigation',
     'sidebar_menu' => 'Sidebar Menu (front)',
-    'footer_menu_2' => 'Footer Menu 2 (more)',
-    'partner_nav' => 'Partners Page',
 ));
 
 //REGISTRATION SIDEBAR
