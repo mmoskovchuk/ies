@@ -25,7 +25,6 @@ class YOP_POLL_Maintenance {
 		}
 		$this->dbschema->create_tables();
 		$this->capabilities->install();
-		//$this->create_archive_page();
 		if ( $this->importer ) {
 			$this->importer->initialise();
 		}
@@ -33,6 +32,7 @@ class YOP_POLL_Maintenance {
 		if ( ! wp_next_scheduled ( 'yop_poll_hourly_event', array() ) ) {
 			wp_schedule_event( time(), 'hourly', 'yop_poll_hourly_event', array() );
 		}
+        $this->create_archive_page();
 	}
 	public function create_archive_page() {
 		$poll_archive_page = get_page_by_path( 'yop-poll-archive', ARRAY_A );
@@ -49,6 +49,10 @@ class YOP_POLL_Maintenance {
 		} else {
 			$poll_archive_page_id = $poll_archive_page['ID'];
 		}
+        $default_options = get_option( 'yop_poll_options' );
+        $default_options['archive_url'] = get_permalink( $poll_archive_page_id );
+        $default_options['yop_poll_archive_page_id'] = $poll_archive_page_id;
+        update_option( 'yop_poll_options', $default_options );
 	}
 	public function create_options() {
 		update_option( 'yop_poll_version', YOP_POLL_VERSION );

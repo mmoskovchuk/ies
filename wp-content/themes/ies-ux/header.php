@@ -42,7 +42,7 @@ $additional_body_class = 'page-' . $current_page;
                             $nav_args = array(
                                 'theme_location' => 'nav',
                                 'container' => '',
-                                'depth' => 1
+                                'depth' => 2
                             );
                             wp_nav_menu($nav_args);
                             ?>
@@ -53,15 +53,16 @@ $additional_body_class = 'page-' . $current_page;
                     <div class="col-md-5 header__right-block">
                         <div class="header__search">
                             <?php get_search_form(); ?>
+                            <ul class="ajax-search"></ul>
                         </div>
                         <div class="header__social-icon">
                             <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
                                 <i class="fab fa-facebook-f fa-2x"></i>
                             </a>
-                            <a rel="nofollow" href="//telegram.org/" target="_blank">
-                                <i class="fab fa-telegram-plane fa-2x"></i>
+                            <a rel="nofollow" href="//m.me/162316441371731" target="_blank">
+                                <i class="fab fa-facebook-messenger fa-2x"></i>
                             </a>
-                            <a rel="nofollow" href="//instagram.com/" target="_blank">
+                            <a rel="nofollow" href="//www.instagram.com/ies_nau/" target="_blank">
                                 <i class="fab fa-instagram fa-2x"></i>
                             </a>
                         </div>

@@ -183,3 +183,29 @@ function the_truncated_post($symbol_amount) {
     $filtered = strip_tags( preg_replace('@<style[^>]*?>.*?</style>@si', '', preg_replace('@<script[^>]*?>.*?</script>@si', '', apply_filters('the_content', get_the_content()))) );
     echo substr($filtered, 0, strrpos(substr($filtered, 0, $symbol_amount), ' ')) . '...';
 }
+
+// AJAX SEARCH
+//--------------------------------------------------
+
+function ies_ajax_search(){
+    $args = array(
+        'post_type'        => 'any',
+        'post_status'      => 'publish',
+        'order'            => 'DESC',
+        'orderby'          => 'date',
+        's'                => $_POST['term'],
+        'posts_per_page'   => 5
+    );
+    $query = new WP_Query( $args );
+    if($query->have_posts()){
+        while ($query->have_posts()) { $query->the_post();?>
+            <li>
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                <?php the_truncated_post(150);?>
+            </li>
+        <?php } }else{ ?>
+        <li>Нічого не знайдено, спробуйте інший запит</li>
+    <?php } exit;
+}
+add_action('wp_ajax_nopriv_ies_ajax_search','ies_ajax_search');
+add_action('wp_ajax_ies_ajax_search','ies_ajax_search');

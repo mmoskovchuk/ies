@@ -99,7 +99,7 @@ Edit your poll and in "View Results:" choose "After Poll End Date" and save.
 
 = Can I add more than one question to a poll? =
 
-You can have only one question per poll. If you want to ask more than one question, you have to create a poll for each one.
+You can have only one question per poll. Pro Version supports multiple questions per poll.
 
 == Screenshots ==
 
@@ -114,6 +114,20 @@ You can have only one question per poll. If you want to ask more than one questi
 9. View Results
 
 == Changelog ==
+
+= 6.0.2 =
+* load plugin js and css only on plugin pages
+* fixed issue with exporting custom fields data
+* added column for each custom field when exporting votes
+* fixed issue with "Show total answers" being set to "Yes" when "Show total votes" is set to "Yes"
+* fixed issue with email notifications
+* fixed issue with captcha
+* added support for poll archive page
+* added ability to set number of polls displayed per page
+* fixed issue with results color when poll is ended
+* fixed issue with generating page for poll
+* removed p tag from notification messages
+* fixed issue with gdpr consent checkbox
 
 = 6.0.1 =
 * css cleanout

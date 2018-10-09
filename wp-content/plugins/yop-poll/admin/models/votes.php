@@ -388,11 +388,11 @@ class YOP_Poll_Votes {
 		$query = '';
 		switch ( $field ) {
 			case 'voter_id': {
-				$query = "SELECT * FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %d AND `voter_id` = %s ORDER BY `added_date` DESC LIMIT 1";
+				$query = "SELECT * FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %d AND `voter_id` = %s AND `status` = 'active' ORDER BY `added_date` DESC LIMIT 1";
 				break;
 			}
 			case 'ipaddress': {
-				$query = "SELECT * FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %d AND  `ipaddress` = %s ORDER BY `added_date` DESC LIMIT 1";
+				$query = "SELECT * FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %d AND `ipaddress` = %s AND `status` = 'active' ORDER BY `added_date` DESC LIMIT 1";
 				break;
 			}
 		}
@@ -406,11 +406,11 @@ class YOP_Poll_Votes {
 		$query = '';
 		switch ( $field ) {
 			case 'user_id': {
-				$query = "SELECT COUNT(*) FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %s AND `user_id` = %s";
+				$query = "SELECT COUNT(*) FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %s AND `user_id` = %s AND `status` = 'active'";
 				break;
 			}
 			case 'user_email': {
-				$query = "SELECT COUNT(*) FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %s AND `user_email` = %s";
+				$query = "SELECT COUNT(*) FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %s AND `user_email` = %s AND `status` = 'active'";
 				break;
 			}
 			default: {
@@ -587,8 +587,8 @@ class YOP_Poll_Votes {
 							}
 						}
 					}
-					$vote_total_answers += count( $vote_element->data );
 				}
+				$vote_total_answers += count( $vote_element->data );
 			}
 		}
 		YOP_Poll_Polls::add_vote( $vote->pollId, $vote_total_answers );
@@ -672,6 +672,8 @@ class YOP_Poll_Votes {
 	}
 	public static function prepare_for_mail( $vote, $poll ) {
 		$result_data = array();
+		$result_data['questions'] = array();
+		$result_data['custom-fields'] = array();
 		foreach( $vote->data as $vote_element ) {
 			foreach( $poll->elements as $poll_element ) {
 				if ( $vote_element->id === $poll_element->id ) {
@@ -709,12 +711,27 @@ class YOP_Poll_Votes {
 		return $result_data;
 	}
 	public static function send_email_notification( $vote, $poll ) {
-		$email_to = $poll->meta_data['options']['poll']['emailNotificationsTo'];
-		$email_subject = $poll->meta_data['options']['poll']['emailNotificationsSubject'];
-		$email_body = $poll->meta_data['options']['poll']['emailNotificationsMessage'];
-		$email_headers = array (
-			'From: ' . $poll->meta_data['options']['poll']['emailNotificationsFromName'] . '<' . $poll->meta_data['options']['poll']['emailNotificationsFromEmail'] . '>'
-		);
+        $email_to = [];
+        $email_to_string =  isset( $poll->meta_data['options']['poll']['emailNotificationsRecipients'] ) ?
+            $poll->meta_data['options']['poll']['emailNotificationsRecipients'] : '';
+        $recipients_array = explode( ',', $email_to_string );
+        if ( count ( $recipients_array ) > 0 ) {
+            foreach ( $recipients_array as $ra ) {
+                $email_to[] = trim( $ra );
+            }
+        }
+        $email_subject = isset( $poll->meta_data['options']['poll']['emailNotificationsSubject'] ) ?
+            $poll->meta_data['options']['poll']['emailNotificationsSubject'] : '';
+        $email_body = isset( $poll->meta_data['options']['poll']['emailNotificationsMessage'] ) ?
+            $poll->meta_data['options']['poll']['emailNotificationsMessage'] : '';
+        $email_from_name = isset( $poll->meta_data['options']['poll']['emailNotificationsFromName'] ) ?
+            $poll->meta_data['options']['poll']['emailNotificationsFromName'] : '';
+        $email_from_email = isset( $poll->meta_data['options']['poll']['emailNotificationsFromEmail'] ) ?
+            $poll->meta_data['options']['poll']['emailNotificationsFromEmail'] : '';
+        $email_headers = array (
+            'From: ' . $email_from_name . '<' . $email_from_email . '>'
+        );
+
 		$email_body = str_replace( '%VOTE_DATE%', date_i18n( get_option( 'date_format' ), strtotime( $vote->added_date ) ), $email_body);
 		$email_body = str_replace( '%POLL_NAME%', $poll->name, $email_body );
 		$questions_tag = self::get_content_between_tags( $email_body, '[QUESTION]', '[/QUESTION]' );
@@ -724,7 +741,7 @@ class YOP_Poll_Votes {
 		$vote_results = self::prepare_for_mail( $vote, $poll );
 		foreach( $vote_results['questions'] as $question_result ) {
 			$question_block = str_replace( '%QUESTION_TEXT%', $question_result['text'], $questions_tag );
-			$question_block = str_replace( '%ANSWER_VALUE%', implode( '\n', $question_result['answers'] ), $question_block );
+			$question_block = str_replace( '%ANSWER_VALUE%', implode( "\n", $question_result['answers'] ), $question_block );
 			$questions_block .= $question_block;
 		}
 		foreach( $vote_results['custom-fields'] as $custom_field_result ) {
@@ -766,8 +783,12 @@ class YOP_Poll_Votes {
 			),
 			$email_body
 		);
-		//$email_body = str_replace( $custom_fields_tag, $custom_fields_block, $email_body );
-		//wp_mail( $email_to, $email_subject, $email_body, $email_headers );
+		$email_body = str_replace( $custom_fields_tag, $custom_fields_block, $email_body );
+		foreach ( $email_to as $eto ) {
+		    if ( is_email( $eto ) ) {
+                wp_mail( $eto, $email_subject, $email_body, $email_headers );
+            }
+        }
 	}
 	public static function get_vote_by_poll ( $poll_id, $limit, $offset ) {
         $query = "SELECT * FROM {$GLOBALS['wpdb']->yop_poll_votes} WHERE `poll_id` = %d AND `status` = 'active' ORDER BY `added_date` ASC LIMIT %d OFFSET %d";
@@ -1095,6 +1116,7 @@ class YOP_Poll_Votes {
                                             if ( $ve['id'] == $qres->id ) {
                                                 $pqa['question'] = 'custom-field';
                                                 $pqa['caption'] = $qres->etext;
+                                                $pqa['id'] = $qres->id;
                                             }
                                         }
                                     }
@@ -1127,15 +1149,37 @@ class YOP_Poll_Votes {
             $customs_data   = [];
             if ( count( $votes ) > 0 ){
                 $x = 0;
+                $customs = [];
+                foreach ( $votes as $vote ) {
+                    $vote_details = self::get_vote_details( $vote['id'] );
+                    foreach ( $vote_details as $res ) {
+                        if ( 'custom-field' === $res['question']) {
+                            $customs[$res['id']] = $res['caption'];
+                            $customs_data[$x]['headers'][] = $res['caption'];
+                            $customs_data[$x]['data'][] = addslashes( $res['answers'][0]['answer_value'] ) ;
+                        }
+                    }
+                    $x++;
+                }
+                $csv_header_array = [
+                    __( 'Poll Name', 'yop_poll' ),
+                    __( 'Username', 'yop_poll' ),
+                    __( 'Email', 'yop_poll' ),
+                    __( 'User Type', 'yop_poll' ),
+                    __( 'IP', 'yop_poll' ),
+                    __( 'Date', 'yop_poll' ),
+                    __( 'Vote data', 'yop-poll' )
+                ];
+                foreach ( $customs as $key => $val ) {
+                    $csv_header_array[] = __( 'Custom field - ', 'yop-poll' ) . $val;
+                }
                 foreach ( $votes as $vote ) {
                     $vote_details = self::get_vote_details( $vote['id'] );
                     $details_string = '';
+                    $custom_data = [];
                     foreach ( $vote_details as $res ) {
                         if ( 'custom-field' === $res['question']) {
-                            $details_string .= __( 'Custom Field', 'yop-poll' ) . ': ' . addslashes( $res['caption'] ) . ';';
-                            $details_string .= __( 'Answer', 'yop-poll' ) . ': '. addslashes( $res['answers'][0]['answer_value'] ) . ';';
-                            $customs_data[$x]['headers'][] = $res['caption'];
-                            $customs_data[$x]['data'][] = addslashes( $res['answers'][0]['answer_value'] ) ;
+                            $custom_data[$res['id']] = addslashes( $res['answers'][0]['answer_value'] );
                         } else {
                             $details_string .= __( 'Question', 'yop-poll' ). ': ' . addslashes( $res['question'] ) .';';
                             foreach ( $res['answers'] as $ra ) {
@@ -1152,6 +1196,13 @@ class YOP_Poll_Votes {
                         esc_html( date( $date_format . ' @ ' . $time_format, strtotime( $vote['added_date'] ) ) ),
                         stripslashes( $details_string )
                     ];
+                    foreach ( $customs as $key => $val ) {
+                        if( isset( $custom_data[$key] ) ) {
+                            array_push( $vote_data, $custom_data[$key] );
+                        } else {
+                            array_push( $vote_data, '' );
+                        }
+                    }
                     $votes_for_csv[] = $vote_data;
                     $x++;
                 }
@@ -1167,15 +1218,6 @@ class YOP_Poll_Votes {
                 $f = fopen( 'php://output', 'w' ) or show_error( __( "Can't open php://output!", 'yop_poll' ) );
                 $csv_file_name    = 'votes_export.' . date( 'YmdHis' ) . '.csv';
                 header( 'Content-Disposition: attachment; filename="' . $csv_file_name . '"' );
-                $csv_header_array = [
-                    __( 'Poll Name', 'yop_poll' ),
-                    __( 'Username', 'yop_poll' ),
-                    __( 'Email', 'yop_poll' ),
-                    __( 'User Type', 'yop_poll' ),
-                    __( 'IP', 'yop_poll' ),
-                    __( 'Date', 'yop_poll' ),
-                    __( 'Vote data', 'yop-poll' )
-                ];
                 if ( !Helper::yop_fputcsv( $f, $csv_header_array ) ) _e( "Can't write header!", 'yop_poll' );
                 if ( count( $votes_for_csv ) > 0 ) {
                     foreach ( $votes_for_csv as $vote_data ) {

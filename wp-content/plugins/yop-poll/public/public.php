@@ -67,7 +67,8 @@ class YOP_Poll_Public {
 		load_plugin_textdomain( 'yop-poll', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 	public function create_shortcodes()  {
-		add_shortcode( 'yop_poll', array( $this, 'parse_regular_shortcode' ) );
+        add_shortcode( 'yop_poll', array( $this, 'parse_regular_shortcode' ) );
+        add_shortcode( 'yop_poll_archive', array( $this, 'parse_archive_shortcode' ) );
 	}
 	public function parse_regular_shortcode( $atts ) {
 		$params = shortcode_atts(
@@ -80,6 +81,25 @@ class YOP_Poll_Public {
 			$atts, 'yop_poll' );
 		return $this->generate_poll( $params );
 	}
+    public function parse_archive_shortcode( $atts ) {
+	    $content = '';
+        $sql = 'SELECT `id` FROM ' . $GLOBALS['wpdb']->yop_poll_polls;
+        $polls = $GLOBALS['wpdb']->get_results( $sql, ARRAY_A );
+        if ( count( $polls ) > 0 ) {
+            foreach ( $polls as $p ) {
+	            $params = shortcode_atts(
+		            array(
+			            'id'      => $p['id'],
+			            'results' => 0,
+			            'tid'   => '',
+			            'show_results' => ''
+		            ),
+		            $atts, 'yop_poll' );
+                $content .= $this->generate_poll( $params );
+            }
+        }
+        return $content;
+    }
 	public function generate_poll( $params ){
 		if ( isset( $params['id'] ) && ( '' !== $params['id'] ) ) {
 			$poll = '';

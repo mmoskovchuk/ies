@@ -1,34 +1,82 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> class="page-404">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<?php
+/**
+ * Template Name: 404
+ */
+?>
 
-	<title><?php bloginfo('name') . ' | ' . wp_title(); ?></title>
+<?php get_header(); ?>
 
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-	<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
 
-    <link rel="stylesheet" href="<?php bloginfo('template_url');?>/css/style.min.css">
+    <section class="top-block">
+        <div class="container">
+            <div class="row">
 
-	<?php //wp_head(); ?>
-</head>
+                <div class="top-block__info">
 
-<body>
+                    <div class="col-md-5">
 
-	<div class="page-404__container">
-		<div class="page-404__img-top">
-			<img src="<?php bloginfo('template_directory'); ?>/img/404.jpg" alt="Page not found" title="Page not found" />
-		</div>
+                        <div class="top-block__wrap">
+                            <a href="<?php echo home_url(); ?>">
+                                <div class="top-block__logo">
+                                    <img src="<?php bloginfo('template_url'); ?>/img/logo.png"
+                                         alt="<?php bloginfo('name'); ?>" class="top-block__logo-big"/>
+                                    <span class="top-block__logo-tagline"><?php bloginfo('description'); ?></span>
+                                </div>
+                                <div class="top-block__logo-title">
+                                    <p>факультет</p>
+                                    <p>екологічної безпеки,</p>
+                                    <p>інженерії</p>
+                                    <p>та технологій</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="top-block__button_wrap">
+                            <a href="#">
+                            <span class="top-block__button_block">
+                                <i class="fas fa-university fa-2x"></i>
+                            </span>
+                                Кафедри
+                            </a>
+                            <a href="//www.lib.nau.edu.ua/main/" target="_blank">
+                            <span class="top-block__button_block">
+                                <i class="fas fa-book-reader fa-2x"></i>
+                            </span>
+                                Бібліотека
+                            </a>
+                            <a href="#">
+                            <span class="top-block__button_block">
+                                <i class="fas fa-phone-volume fa-2x"></i>
+                            </span>
+                                Контакти
+                            </a>
+                        </div>
+                    </div>
 
-		<div class="page-404__text">please, try going back to the <br/><a href="/">main page</a> or to the <a href="/order">order page</a></div>
+                </div>
 
-		<div class="page-404__img-bottom">
-			<img src="<?php bloginfo('template_directory'); ?>/img/404-hat.jpg" alt="" />
-		</div>
-	</div>
+            </div>
+        </div>
+    </section>
 
-	<?php //wp_footer(); ?>
 
-</body>
-</html>
+    <section class="404">
+        <div class="container">
+            <div class="col-md-9 404__content">
+                <h1>Сторінку не знайдено</h1>
+                <p>На жаль, сторінку __ не вдалося знайти. Причини, що могли призвести до помилки:</p>
+                <ul>
+                    <li>Ви невірно набрали адресу - перевірте правильність адреси;</li>
+                    <li>Такої сторінки ніколи не було на нашому сайті - зайдіть на головну сторінку або скористайтеся пошуком ;</li>
+                    <li>Така сторінка була, але за цiєю адресою її більше немає - будь ласка, сповістіть web-майстра про це;</li>
+                    <li>Сторiнка була, але її перенесли пiд час змiни структури сайту - скористайтесь пошуком;</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+    </section>
+
+<?php get_footer(); ?>

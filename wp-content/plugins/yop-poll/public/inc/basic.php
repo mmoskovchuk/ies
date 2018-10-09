@@ -961,7 +961,8 @@ class YOP_Poll_Basic {
 										. '">'
 											. '<p>' . __( 'This poll is no longer accepting votes', 'yop-poll' ) . '</p>'
 										. '</div>'
-									. '</div>';
+									. '</div>'
+                                . '</div>';
 		return $poll_ready_for_output;
 	}
 	public static function prepare_not_started_poll_for_display( $poll, $params ) {
@@ -987,7 +988,8 @@ class YOP_Poll_Basic {
 										. '">'
 											. '<p>' . __( 'This poll is not accepting votes yet', 'yop-poll' ) . '</p>'
 										. '</div>'
-									. '</div>';
+									. '</div>'
+                                . '</div>';
 		return $poll_ready_for_output;
 	}
 	public static function prepare_regular_view_for_display( $poll, $params ) {
@@ -1074,7 +1076,6 @@ class YOP_Poll_Basic {
 										. 'color:' . esc_attr( $poll->meta_data['style']['errors']['textColor'] ) . ';'
 										. 'font-size:' . esc_attr( $poll->meta_data['style']['errors']['textSize'] ) . ';"'
 										. '">'
-											. '<p></p>'
 										. '</div>'
 										. '<div class="basic-overlay hide">'
 											. '<div class="basic-vote-options">'
@@ -1153,7 +1154,8 @@ class YOP_Poll_Basic {
 										. '">'
 											. '<p>' . __( 'Thank you for your vote(s)', 'yop-poll' ) . '</p>'
 										. '</div>'
-									. '</div>';
+									. '</div>'
+		                           . '</div>';
 		return $poll_ready_for_output;
 	}
 	public static function create_poll_view( $poll, $params ) {

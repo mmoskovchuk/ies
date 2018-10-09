@@ -298,7 +298,7 @@
                                     <div id="collapseCustomFields" class="panel-collapse collapse <?php if (0 == $x) echo "in"; ?>">
                                         <div class="panel-body">
                                             <form method="get">
-                                                <input type="hidden" name="page" value="yop-poll">
+                                                <input type="hidden" name="page" value="yop-polls">
                                                 <input type="hidden" name="exportCustoms" value="true">
                                                 <input type="hidden" name="action" value="results">
                                                 <input type="hidden" name="poll_id" value="<?php echo isset( $_REQUEST['poll_id'] ) ? $_REQUEST['poll_id'] : ''; ?>">

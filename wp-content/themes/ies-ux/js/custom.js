@@ -35,15 +35,13 @@
 
 $(document).ready(function () {
     $('.top-block__slider').slick({
-        dots: false,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        arrows: false,
-        draggable: true,
-        fade: true,
+        dots: true,
         infinite: true,
-        speed: 300,
-        slidesToShow: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 6000,
+        arrows: false,
         adaptiveHeight: true
     });
 });
@@ -52,15 +50,51 @@ $(document).ready(function () {
 //-------------------------------------------------
 
 $("#sidebar-nav > ul > li > a").click(function (e) {
-    $("#sidebar-nav li > ul").slideUp(),
+    $("#sidebar-nav li > ul").slideUp();
     $(this).next().is(":visible") || $(this).next().slideDown();
 
-    if (!$("#sidebar-nav > ul > li").hasClass('open')) { // если класса нет
-        $("#sidebar-nav > ul > li").addClass('open'); // добавляем класс
-    } else { // если есть
-        $("#sidebar-nav > ul > li").removeClass('open'); // убираем класс
-    }
+    e.preventDefault();
 
-        e.stopPropagation();
 });
 
+/*$("#sidebar-nav > ul > li").click(function (e) {
+    e.preventDefault();
+    console.log('pre');
+    if (!$(this).hasClass('open')) { // если класса нет
+        $(e.target).addClass('open'); // добавляем класс
+        // $(this).next().is(":visible") || $(this).next().slideDown();
+        console.log('no');
+    } else if ($(this).hasClass('open')) { // если есть
+        $(this).removeClass('open'); // убираем класс
+        // $("#sidebar-nav li > ul").slideUp()
+        console.log('yes');
+
+    }
+});*/
+
+
+//SEARCH
+//-------------------------------------------------
+
+jQuery(document).ready(function($){
+    $('input').attr('autocomplete', 'false');
+    $('.header__search-text').keyup(function(eventObject){
+        var searchTerm = $(this).val();
+        // проверим, если в поле ввода более 2 символов, запускаем ajax
+        if(searchTerm.length > 1){
+            $.ajax({
+                url : '/wp-admin/admin-ajax.php',
+                type: 'POST',
+                data:{
+                    'action':'ies_ajax_search',
+                    'term'  :searchTerm
+                },
+                success:function(result){
+                    $('.ajax-search').fadeIn().html(result);
+                }
+            });
+        } else if(searchTerm.length < 1) {
+            $('.ajax-search').css('display','none');
+        }
+    });
+});

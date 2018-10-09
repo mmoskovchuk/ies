@@ -32,6 +32,6 @@
 
     <?php endwhile; ?>
     <div class="content-block__all-news-wrap">
-        <a href="#"><i class="fas fa-newspaper"></i>&nbsp;Всі новини</a>
+        <a href="/news"><i class="fas fa-newspaper"></i>&nbsp;Всі новини</a>
     </div>
 </div>
