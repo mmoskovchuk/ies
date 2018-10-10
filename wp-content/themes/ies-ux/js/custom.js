@@ -98,3 +98,26 @@ jQuery(document).ready(function($){
         }
     });
 });
+
+//MOBILE MENU (plugin: slicknav)
+//-------------------------------------------------
+(function($) {
+    $('#nav').slicknav({
+        prependTo: '#mobile-nav'
+    });
+
+    //close slicknav menu after click outside an element
+    $(document).on('click', function(event) {
+        if (!$(event.target).closest('.slicknav_menu').length && !$(event.target).is('.slicknav_menu')) {
+            if ($('.slicknav_open').size()) {
+                $('#nav').slicknav('close');
+            }
+        }
+    });
+
+    $('.slicknav_btn').on('click', function(){
+        if ($(this).hasClass('slicknav_open')) $('#header').addClass('mmenu-open');
+        else $('#header').removeClass('mmenu-open');
+    })
+})(jQuery);
+

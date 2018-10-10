@@ -24,53 +24,50 @@ $current_page = $url_rm_slash ? $url_rm_slash : 'home';
 $additional_body_class = 'page-' . $current_page;
 ?>
 
-    <body <?php body_class($additional_body_class); ?>>
+<body <?php body_class($additional_body_class); ?>>
 
-    <div id="wptime-plugin-preloader"></div>
+<div id="wptime-plugin-preloader"></div>
 
 <!--HEADER-->
-
-
 <header class="header" id="header">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-7">
-                        <nav class="header__menu" id="nav">
-                            <?php
-                            $nav_args = array(
-                                'theme_location' => 'nav',
-                                'container' => '',
-                                'depth' => 2
-                            );
-                            wp_nav_menu($nav_args);
-                            ?>
-                        </nav>
-                    </div>
 
 
-                    <div class="col-md-5 header__right-block">
-                        <div class="header__search">
-                            <?php get_search_form(); ?>
-                            <ul class="ajax-search"></ul>
-                        </div>
-                        <div class="header__social-icon">
-                            <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
-                                <i class="fab fa-facebook-f fa-2x"></i>
-                            </a>
-                            <a rel="nofollow" href="//m.me/162316441371731" target="_blank">
-                                <i class="fab fa-facebook-messenger fa-2x"></i>
-                            </a>
-                            <a rel="nofollow" href="//www.instagram.com/ies_nau/" target="_blank">
-                                <i class="fab fa-instagram fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
 
-                </div>
+            <div class="col-lg-7 col-md-2 col-sm-1 col-xs-2 header__left-block">
+                <div class="mobile_nav" id="mobile-nav"></div>
+                <nav class="header__menu" id="nav">
+                    <?php
+                    $nav_args = array(
+                        'theme_location' => 'nav',
+                        'container' => '',
+                        'depth' => 2
+                    );
+                    wp_nav_menu($nav_args);
+                    ?>
+                </nav>
             </div>
-        </div>
+
+            <div class="col-lg-5 col-md-10 col-sm-11 col-xs-10 header__right-block">
+
+                <div class="header__search">
+                    <?php get_search_form(); ?>
+                    <ul class="ajax-search"></ul>
+                </div>
+                <div class="header__social-icon">
+                    <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
+                        <i class="fab fa-facebook-f fa-2x"></i>
+                    </a>
+                    <a rel="nofollow" href="//m.me/162316441371731" target="_blank">
+                        <i class="fab fa-facebook-messenger fa-2x"></i>
+                    </a>
+                    <a rel="nofollow" href="//www.instagram.com/ies_nau/" target="_blank">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                </div>
+
+            </div>
+
     </div>
 </header>
 

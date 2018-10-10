@@ -4,7 +4,7 @@
 
             <div class="top-block__info">
 
-                <div class="col-md-5">
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-5">
 
                     <div class="top-block__wrap">
                         <a href="<?php echo home_url(); ?>">
@@ -22,7 +22,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-7">
                     <div class="top-block__button_wrap">
                         <a href="//phone.nau.edu.ua/" target="_blank">
                             <span class="top-block__button_block">

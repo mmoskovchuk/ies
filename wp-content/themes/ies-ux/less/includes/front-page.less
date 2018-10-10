@@ -5,7 +5,11 @@
   margin-bottom: 60px;
   &__info {
     margin-top: 19px;
+    margin-bottom: 19px;
     height: 120px;
+    @media(max-width: 1025px) {
+      height: 153px;
+    }
   }
   &__wrap {
     > a {
@@ -41,8 +45,11 @@
     &_wrap {
       display: flex;
       justify-content: flex-end;
-      height: 75px;
+      height: 90px;
       align-items: center;
+      @media(max-width: 1025px) {
+      height: 130px;
+    }
       > a {
         background: @c5;
         text-align: center;
@@ -140,8 +147,17 @@
         font-size: 14px;
         font-family: @roboto;
         font-weight: 500;
-        text-align: left;
         text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media(max-width: 1025px) {
+          min-height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
