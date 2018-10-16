@@ -24,8 +24,7 @@
     <div class="footer__bottom">
         <div class="container">
             <div class="col-md-12">
-                <div class="copyright">&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?> Навчально-науковий
-                    інститут екологічної безпеки.
+                <div class="copyright">&copy; <?php echo date("Y"); ?> Факультет екологічної безпеки, інженерії та технологій (НАУ)
                 </div>
             </div>
         </div>

@@ -163,11 +163,43 @@
   }
 }
 
+.in-the-process {
+  display: flex;
+  align-items: center;
+  height: inherit;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__top-block_logo {
+    margin-bottom: 60px;
+  }
+  p {
+    font-family: @roboto;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+}
 
 
 //CONTENT BLOCK
 //--------------------------------------------------
-
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  > wrapper {
+    flex: 1 0 auto;
+  }
+}
+.home {
+  .main {
+    display: block;
+    height: auto;
+  }
+}
 .content-block {
   margin-top: 25px;
   margin-bottom: 25px;
