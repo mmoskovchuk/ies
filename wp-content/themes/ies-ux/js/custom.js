@@ -42,7 +42,18 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 6000,
         arrows: false,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
     });
 });
 

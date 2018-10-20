@@ -284,6 +284,16 @@
     margin: 3px;
     background: #eee;
   }
+  &_open {
+    .slicknav_item {
+      .slicknav_arrow {
+        color: #f29444;
+      }
+      a {
+        color: #f29444;
+      }
+    }
+  }
   &_nav {
     position: absolute;
     left: 0;
@@ -299,10 +309,17 @@
     text-align: center;
     overflow: auto;
     ul {margin: 0}
-    li {display: block;}
+    li {
+      display: block;
+      margin: 10px 0;
+    }
     a {
       font-size: 16px;
       padding: 10px;
+      color: @c1;
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

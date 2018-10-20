@@ -3,6 +3,9 @@
 
 .top-block {
   margin-bottom: 60px;
+  @media(max-width: 425px) {
+    margin-bottom: 5px;
+  }
   &__info {
     margin-top: 19px;
     margin-bottom: 19px;
@@ -12,6 +15,11 @@
     }
   }
   &__wrap {
+    @media(max-width: 425px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     > a {
       display: flex;
       align-items: center;
@@ -27,11 +35,20 @@
   &__logo {
     width: 150px;
     margin-right: 18px;
+    @media(max-width: 425px) {
+      width: 50%;
+      margin-right: 0;
+      display: flex;
+      justify-content: center;
+    }
     &-big {
       width: 150px;
       height: 103px;
     }
     &-title {
+      @media(max-width: 425px) {
+        width: 50%;
+      }
       > p {
         font-family: @roboto;
         font-weight: 500;
@@ -49,7 +66,11 @@
       align-items: center;
       @media(max-width: 1025px) {
       height: 130px;
-    }
+      }
+      @media(max-width: 425px) {
+        justify-content: center;
+        height: 100px;
+      }
       > a {
         background: @c5;
         text-align: center;
@@ -86,10 +107,18 @@
   }
   &__slider {
     height: 240px;
+    @media(max-width: 425px) {
+      margin-top: 130px;
+      height: auto;
+    }
     .slick-dots {
       display: flex !important;
       justify-content: center;
       list-style-type: none;
+      @media(max-width: 425px) {
+        height: 36px;
+        margin-bottom: 14px;
+      }
       li button {
         position: relative;
         font-size: 0;
@@ -203,6 +232,9 @@
 .content-block {
   margin-top: 25px;
   margin-bottom: 25px;
+  @media(max-width: 425px) {
+    margin-top: 0;
+  }
   h2 {
     text-transform: uppercase;
     font-family: @roboto;
@@ -331,11 +363,13 @@
 
 .sidebar-menu__wrap {
   padding-right: 0;
+  @media(max-width: 768px) {
+    margin-top: 10px;
+  }
 }
 
 .menu-block {
   height: 100%;
-  background-color: @c5;
   transition: all .3s ease-in-out;
   > h2 {
     text-transform: uppercase;
@@ -350,6 +384,7 @@
     border: 0;
   }
   #sidebar-nav {
+    background-color: @c5;
     ul, ul ul {
       margin: -2px 0 0;
       padding: 0;
