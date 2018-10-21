@@ -21,6 +21,24 @@
         font-size: 16px;
         font-weight: 500;
       }
+      @media(max-width: 425px) {
+        align-items: center !important;
+        box-shadow: none !important;
+        text-align: center;
+      }
+    }
+    @media(max-width: 425px) {
+      &-block:nth-child(1) {
+        > div:before {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: #505050;
+          width: 100%;
+          height: 1px;
+        }
+      }
     }
   }
   &__bottom {
