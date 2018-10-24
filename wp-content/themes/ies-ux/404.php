@@ -7,58 +7,8 @@
 <?php get_header(); ?>
 
 
-    <section class="top-block">
-        <div class="container">
-            <div class="row">
-
-                <div class="top-block__info">
-
-                    <div class="col-md-5">
-
-                        <div class="top-block__wrap">
-                            <a href="<?php echo home_url(); ?>">
-                                <div class="top-block__logo">
-                                    <img src="<?php bloginfo('template_url'); ?>/img/logo.png"
-                                         alt="<?php bloginfo('name'); ?>" class="top-block__logo-big"/>
-                                    <span class="top-block__logo-tagline"><?php bloginfo('description'); ?></span>
-                                </div>
-                                <div class="top-block__logo-title">
-                                    <p>факультет</p>
-                                    <p>екологічної безпеки,</p>
-                                    <p>інженерії</p>
-                                    <p>та технологій</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="top-block__button_wrap">
-                            <a href="#">
-                            <span class="top-block__button_block">
-                                <i class="fas fa-university fa-2x"></i>
-                            </span>
-                                Кафедри
-                            </a>
-                            <a href="//www.lib.nau.edu.ua/main/" target="_blank">
-                            <span class="top-block__button_block">
-                                <i class="fas fa-book-reader fa-2x"></i>
-                            </span>
-                                Бібліотека
-                            </a>
-                            <a href="#">
-                            <span class="top-block__button_block">
-                                <i class="fas fa-phone-volume fa-2x"></i>
-                            </span>
-                                Контакти
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
+    <!-- TOP-BLOCK -->
+<?php get_template_part('includes/inc', 'top-block'); ?>
 
 
     <section class="404">

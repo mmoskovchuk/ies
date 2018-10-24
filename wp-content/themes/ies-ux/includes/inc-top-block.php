@@ -36,7 +36,7 @@
                             </span>
                             Бібліотека
                         </a>
-                        <a href="#">
+                        <a href="/kontakty">
                             <span class="top-block__button_block">
                                 <i class="fas fa-phone-volume fa-2x"></i>
                             </span>
