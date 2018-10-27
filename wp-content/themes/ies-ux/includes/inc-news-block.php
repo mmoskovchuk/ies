@@ -1,5 +1,5 @@
 <div class="content-block__news-wrap">
-    <h2>Новини</h2>
+    <h2 class="title-ribbon">Новини</h2>
     <?php
     $pc = new WP_Query('cat=1&orderby=date&posts_per_page=5'); ?>
     <?php while ($pc->have_posts()) : $pc->the_post(); ?>

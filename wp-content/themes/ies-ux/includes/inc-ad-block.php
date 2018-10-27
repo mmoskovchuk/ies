@@ -1,5 +1,5 @@
 <div class="content-block__ad-wrap">
-    <h2>Оголошення</h2>
+    <h2 class="title-ribbon">Оголошення</h2>
 
     <?php
     $pc = new WP_Query('cat=3&orderby=date&posts_per_page=3'); ?>

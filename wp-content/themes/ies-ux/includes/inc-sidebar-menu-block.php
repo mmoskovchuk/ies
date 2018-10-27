@@ -1,6 +1,6 @@
 <div class="sidebar-menu__wrap">
     <div class="menu-block">
-        <h2>Навігація</h2>
+        <h2 class="title-ribbon">Навігація</h2>
         <nav class="sidebar__menu" id="sidebar-nav">
             <?php
             $nav_args = array(
