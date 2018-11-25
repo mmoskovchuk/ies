@@ -28,19 +28,19 @@
                             <span class="top-block__button_block">
                                 <i class="far fa-address-book fa-2x"></i>
                             </span>
-                            Довідник
+                            <p>Довідник</p>
                         </a>
                         <a href="//www.lib.nau.edu.ua/main/" target="_blank">
                             <span class="top-block__button_block">
                                 <i class="fas fa-book-reader fa-2x"></i>
                             </span>
-                            Бібліотека
+                            <p>Бібліотека</p>
                         </a>
                         <a href="/kontakty">
                             <span class="top-block__button_block">
                                 <i class="fas fa-phone-volume fa-2x"></i>
                             </span>
-                            Контакти
+                            <p>Контакти</p>
                         </a>
                     </div>
                 </div>
@@ -48,129 +48,25 @@
             </div>
 
             <?php if ((is_front_page()) and (!is_paged())) { ?>
-                <div class="top-block__slider">
+            <div class="top-block__slider">
 
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=156'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
 
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/1.jpg" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
+                        <?php
+                        $stati_children = new WP_Query('posts_per_page=6&post_type=page&post_parent=293');
 
-                                        <h3>Кафедра аерокосмічної геодезії</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
+                        if ($stati_children->have_posts()) :
+                            while ($stati_children->have_posts()): $stati_children->the_post();
 
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=158'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/2.png" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
+                                echo '<div class="top-block__news-slider"><ul><li><a class="top-block__news-slider_img-link" href="' . get_the_permalink() . '">' . '<img src="' . get_the_post_thumbnail_url($post_id, 'full') . '"' . ' alt="#" class="header__logo-big" />' . '<h3>' . get_the_title() . '</h3>' . '</a></li></ul></div>';
 
-                                        <h3>Кафедра цивільної та промислової безпеки</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
+                            endwhile; ?>
 
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=160'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/3.jpg" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
+                        <?php endif;
+                        wp_reset_query(); ?>
 
-                                        <h3>Кафедра біотехнології</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
-
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=40'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
-
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/4.jpg" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
-
-                                        <h3>Кафедра екології</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
-
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=152'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/5.jpg" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
-
-                                        <h3>Кафедра землеустрою та кадастру</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
-
-                    <div class="top-block__news-slider">
-                        <ul>
-                            <!-- определение категории и количество записей -->
-                            <?php $the_query = new WP_Query('cat=5&p=154'); ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                                <li>
-                                    <!-- заголовок записи -->
-                                    <a class="top-block__news-slider_img-link" href="<?php the_permalink() ?>" >
-                                        <?php /*echo get_the_post_thumbnail($post->ID, 'large'); */?>
-                                        <img src="<?php bloginfo('template_url'); ?>/img/slider/6.jpg" alt="<?php bloginfo('name'); ?>" class="header__logo-big"/>
-
-                                        <h3>Кафедра хімії і хімічної технології</h3>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                            <!-- функция для правильной работы условных тегов -->
-                            <?php wp_reset_query(); ?>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="clear"></div>
-            <?php } ?>
-
+                <?php } ?>
+            </div>
+            <div class="clear"></div>
         </div>
     </div>
 </section>

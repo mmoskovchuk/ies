@@ -5,20 +5,46 @@
 ?>
 <?php get_header(); ?>
 
-<?php get_template_part('includes/inc', 'top-block-inner'); ?>
-<?php get_template_part('includes/inc', 'breadcrumbs'); ?>
+    <!-- TOP-BLOCK -->
+<?php get_template_part('includes/inc', 'top-block'); ?>
+    <!--CONTENT-->
+    <section class="content-block">
+        <div class="container">
+            <div class="row content-block__wrap">
 
-<!--CONTENT-->
-<section class="post-content content">
-    <div class="container">
-        <?php get_template_part('loop'); ?>
-    </div>
-</section>
-<?php if (is_single('')) {?>
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-block__order-1 content-block__default-page">
+                    <?php if (have_posts()) : ?>
+                        <?php while (have_posts()) : the_post(); ?>
+                            <h3>
+                                <?php the_title(); ?>
+                            </h3>
+                            <?php the_content(); ?>
+                            <div>
+                                <i class="far fa-calendar-alt"></i> <?php the_date(); ?>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
 
-    <?php get_template_part('other-templates/inc', 'blog-popup'); ?>
-<?}?>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 content-block__order-2 content-block__mobile-margin">
 
+                    <aside class="sidebar">
+
+                        <!-- SIDEBAR-MENU-BLOCK -->
+                        <?php get_template_part('includes/inc', 'sidebar-menu-block'); ?>
+
+                        <!-- SIDEBAR-MAP-BLOCK -->
+                        <?php get_template_part('includes/inc', 'sidebar-map-block'); ?>
+
+                        <!-- SIDEBAR-POLL-BLOCK -->
+                        <?php /*get_template_part('includes/inc', 'sidebar-poll-block'); */ ?>
+
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <?php get_footer(); ?>

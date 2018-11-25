@@ -1,4 +1,5 @@
 <?php
+
 //ADD NO INDEX, NOFOLLOW META TAG
 //--------------------------------------------------
 function noindex_meta_robots () {

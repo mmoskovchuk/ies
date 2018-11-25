@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128945678-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128945678-1');
+    </script>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,45 +41,54 @@ $additional_body_class = 'page-' . $current_page;
 
 <div id="wptime-plugin-preloader"></div>
 
+<div>
+    <div class="container" style="display: flex;justify-content: flex-end;">
+        <div id="google_translate_element"></div><script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'uk', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: false, gaTrack: true, gaId: 'UA-128945678-1'}, 'google_translate_element');
+            }
+        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+</div>
+
 <!--HEADER-->
 <header class="header" id="header">
     <div class="container">
 
 
+        <div class="col-lg-7 col-md-2 col-sm-1 col-xs-2 header__left-block">
+            <div class="mobile_nav" id="mobile-nav"></div>
+            <nav class="header__menu" id="nav">
+                <?php
+                $nav_args = array(
+                    'theme_location' => 'nav',
+                    'container' => '',
+                    'depth' => 2
+                );
+                wp_nav_menu($nav_args);
+                ?>
+            </nav>
+        </div>
 
-            <div class="col-lg-7 col-md-2 col-sm-1 col-xs-2 header__left-block">
-                <div class="mobile_nav" id="mobile-nav"></div>
-                <nav class="header__menu" id="nav">
-                    <?php
-                    $nav_args = array(
-                        'theme_location' => 'nav',
-                        'container' => '',
-                        'depth' => 2
-                    );
-                    wp_nav_menu($nav_args);
-                    ?>
-                </nav>
+        <div class="col-lg-5 col-md-10 col-sm-11 col-xs-10 header__right-block">
+
+            <div class="header__search">
+                <?php get_search_form(); ?>
+                <ul class="ajax-search"></ul>
+            </div>
+            <div class="header__social-icon">
+                <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
+                    <i class="fab fa-facebook-f fa-2x"></i>
+                </a>
+                <a rel="nofollow" href="//m.me/162316441371731" target="_blank">
+                    <i class="fab fa-facebook-messenger fa-2x"></i>
+                </a>
+                <a rel="nofollow" href="//www.instagram.com/ies_nau/" target="_blank">
+                    <i class="fab fa-instagram fa-2x"></i>
+                </a>
             </div>
 
-            <div class="col-lg-5 col-md-10 col-sm-11 col-xs-10 header__right-block">
-
-                <div class="header__search">
-                    <?php get_search_form(); ?>
-                    <ul class="ajax-search"></ul>
-                </div>
-                <div class="header__social-icon">
-                    <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
-                        <i class="fab fa-facebook-f fa-2x"></i>
-                    </a>
-                    <a rel="nofollow" href="//m.me/162316441371731" target="_blank">
-                        <i class="fab fa-facebook-messenger fa-2x"></i>
-                    </a>
-                    <a rel="nofollow" href="//www.instagram.com/ies_nau/" target="_blank">
-                        <i class="fab fa-instagram fa-2x"></i>
-                    </a>
-                </div>
-
-            </div>
+        </div>
 
     </div>
 </header>

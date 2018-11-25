@@ -1,14 +1,18 @@
 <div class="content-block__ad-wrap">
+
     <h2 class="title-ribbon">Оголошення</h2>
 
     <?php
-    $pc = new WP_Query('cat=3&orderby=date&posts_per_page=3'); ?>
-    <?php while ($pc->have_posts()) : $pc->the_post(); ?>
+    $stati_children = new WP_Query('orderby=date&posts_per_page=3&post_type=page&post_parent=274');
 
-        <a href="<?php the_permalink(); ?>">
-            <span><b>[<?php the_date(); ?>]</b> <?php the_title(); ?></span>
-        </a>
+    if ($stati_children->have_posts()) :
+        while ($stati_children->have_posts()): $stati_children->the_post();
 
-    <?php endwhile; ?>
+            echo '<a href="' . get_the_permalink() . '">' . '<span><b>[' . get_field('date_ad') . ']</b>' . '&nbsp;' . get_the_title() . '</span></a>';
+
+        endwhile;?>
+
+    <?php endif; wp_reset_query(); ?>
+
 
 </div>
