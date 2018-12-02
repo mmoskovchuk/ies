@@ -21,10 +21,47 @@
             </div>
         </div>
     </div>
+
     <div class="footer__bottom">
         <div class="container">
+
+            <button id="js_form-toggle" class="contact-form_button">
+                <span>< Лист розробнику /></span>
+            </button>
+            <form id="contactForm" action="./mail.php" method="post" role="form">
+                <div id="note"></div>
+                <div id="contact-form" class="contact-form">
+                    <div class="contact-form__left">
+                        <div class="form-group">
+                            <label for="formName">Ваше ім'я:</label>
+                            <input id="formName" type="text" autocomplete="off" class="input" name="name" data-message="Будь-ласка, введіть Ваше ім'я"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">Ваш e-mail:</label>
+                            <input id="formEmail" type="email" autocomplete="off" class="input" name="email" data-message="Будь-ласка, введіть Ваш e-mail"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="contact-form__right">
+                        <div class="form-group">
+                            <label for="message">Ваше повідомлення:</label>
+                            <textarea id="message" class="textarea" name="message" rows="3" cols="60" data-message="Будь-ласка, введіть Ваше повідомлення"
+                                      required></textarea>
+                        </div>
+                        <button value="Submit" id="submit" class="contact-form__submit" type="submit"><i class="fa fa-paper-plane"></i>
+                            Надіслати</button>
+                    </div>
+                </div>
+                <!-- antispam code -->
+                <!--<div class="antispam">
+                    <input type="text" value="" name="url" />
+                </div>-->
+            </form>
+
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="copyright">&copy; <?php echo date("Y"); ?> Факультет екологічної безпеки, інженерії та технологій (НАУ)
+                <div class="copyright">&copy; <?php echo date("Y"); ?> Факультет екологічної безпеки, інженерії та
+                    технологій (НАУ)
                 </div>
             </div>
         </div>

@@ -132,3 +132,43 @@ jQuery(document).ready(function($){
     })
 })(jQuery);
 
+//MESSAGE FOR DEV
+//-------------------------------------------------
+
+//animation form
+(function($) {
+
+    $('#contactForm').hide();
+
+    $( "#js_form-toggle" ).click(function() { // задаем функцию при нажатиии на элемент с классом slide-toggle
+        $('#contactForm').slideToggle(); // плавно скрываем, или отображаем все элементы <div>
+    });
+
+})(jQuery);
+
+//send form
+jQuery(document).ready(function($) {
+    $("#contactForm").submit(function() {
+        var str = $(this).serialize();
+        $.ajax({
+            type: "POST",
+            url: "./wp-content/themes/ies-ux/mail.php",      // здесь указываем путь ко второму файлу
+            data: str,
+            success: function(msg) {
+                if(msg == 'OK') {
+                    result = '<div class="ok"><i class="fas fa-rocket"></i>&nbsp;Повідомлення відправлено</div>';   // текст, если сообщение отправлено
+                    $("#contact-form").show();
+                }
+                else {result = msg;}
+                $('#note').html(result);
+                $('#message', '#contactForm')
+                    .val('');
+                $('.input', '#contactForm')       // очищаем поля после того, как сообщение отправилось
+                    .not(':button, :submit, :reset, :hidden')
+                    .val('')
+            }
+        });
+        return false;
+    });
+});
+
