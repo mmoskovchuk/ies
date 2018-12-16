@@ -23,6 +23,9 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
 
+    <!--script re-captcha-->
+    <script src='https://www.google.com/recaptcha/api.js?hl=uk'></script>
+
     <?php if (is_front_page()) : ?>
         <link rel="alternate" hreflang="x-default" href="//ies.nau.edu.ua"/>
     <?php endif; ?>

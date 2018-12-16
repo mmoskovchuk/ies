@@ -8,12 +8,12 @@ $redirects = [
     ['/kontakty/','/not-now', 301],
 
     /*slider*/
-    ['/kafedra-aerokosmichnoi-heodezii/','/not-now', 301],
-    ['/kafedra-tsyvilnoi-ta-promyslovoi-bezpeky/','/not-now', 301],
-    ['/kafedra-biotekhnolohii/','/not-now', 301],
-    ['/kafedra-ekolohii/','/not-now', 301],
-    ['/kafedra-zemleustroiu-ta-kadastru/','/not-now', 301],
-    ['/kafedra-khimii-i-khimichnoi-tekhnolohii/','/not-now', 301],
+    //['/kafedra-aerokosmichnoi-heodezii/','/not-now', 301],
+    //['/kafedra-tsyvilnoi-ta-promyslovoi-bezpeky/','/not-now', 301],
+    //['/kafedra-biotekhnolohii/','/not-now', 301],
+    //['/kafedra-ekolohii/','/not-now', 301],
+    //['/kafedra-zemleustroiu-ta-kadastru/','/not-now', 301],
+    //['/kafedra-khimii-i-khimichnoi-tekhnolohii/','/not-now', 301],
 
 
     /*sidebar menu*/

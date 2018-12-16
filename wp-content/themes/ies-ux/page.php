@@ -2,6 +2,8 @@
 
     <!-- TOP-BLOCK -->
 <?php get_template_part('includes/inc', 'top-block'); ?>
+    <!-- BREADCRUMBS -->
+<?php get_template_part('includes/inc', 'breadcrumbs'); ?>
     <!--CONTENT-->
     <section class="content-block">
         <div class="container">
@@ -26,7 +28,7 @@
                         <?php get_template_part('includes/inc', 'sidebar-map-block'); ?>
 
                         <!-- SIDEBAR-POLL-BLOCK -->
-                        <?php /*get_template_part('includes/inc', 'sidebar-poll-block'); */?>
+                        <?php get_template_part('includes/inc', 'sidebar-poll-block'); ?>
 
                     </aside>
 
