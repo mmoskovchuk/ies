@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Nineteen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-03 20:24:46+0000\n"
+"PO-Revision-Date: 2019-01-10 07:05:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,24 +11,29 @@ msgstr ""
 "Language: uk_UA\n"
 "Project-Id-Version: Themes - Twenty Nineteen\n"
 
+#. Description of the theme
+msgid "Our 2019 default theme is designed to show off the power of the block editor. It features custom styles for all the default blocks, and is built so that what you see in the editor looks like what you'll see on your website. Twenty Nineteen is designed to be adaptable to a wide range of websites, whether you’re running a photo blog, launching a new business, or supporting a non-profit. Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, it's built to be beautiful on all screen sizes."
+msgstr "Наша тема 2019-го за замовчуванням, призначена для демонстрації потужності редактора блоків. Вона містить спеціальні стилі для всіх блоків за замовчуванням і побудована таким чином, щоб те, що ви бачите в редакторі, виглядало так само, як ви побачите на своєму веб-сайті. Twenty Nineteen призначена до широкого кола веб-сайтів, незалежно від того, чи створюєте фото-блог, запускаєте новий бізнес або підтримуєте некомерційну діяльність. Маючи великі проміжки і сучасні заголовки без засічок у поєднанні з класичним текстом із засічками, вона створена бути гарною на всіх розмірах екрану."
+
 #. Theme Name of the theme
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
-#. Description of the theme
-msgid "A new Gutenberg-ready theme."
-msgstr "Нова тема з підтримкою Gutenberg."
+#. translators: %s: parent post link
+#: single.php:31
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
+msgstr "<span class=\"meta-nav\">Опубліковано в</span><span class=\"post-title\">%s</span>"
 
 #: image.php:87
 msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
 msgstr "<span class=\"meta-nav\">Опубліковано в</span><br><span class=\"post-title\">%title</span>"
 
-#: inc/template-functions.php:219
+#: inc/template-functions.php:216
 msgid "Back"
 msgstr "Назад"
 
-#: inc/template-functions.php:211
+#: inc/template-functions.php:209
 msgid "More"
 msgstr "Більше"
 
@@ -121,6 +126,10 @@ msgstr "Повний розмір"
 msgid "Page"
 msgstr "Сторінка"
 
+#: functions.php:190
+msgid "Add widgets here to appear in your footer."
+msgstr "Додайте віджети сюди, для розміщення їх в підвал сайту."
+
 #: functions.php:188 template-parts/footer/footer-widgets.php:12
 msgid "Footer"
 msgstr "Підвал"
@@ -128,10 +137,6 @@ msgstr "Підвал"
 #: inc/customizer.php:53
 msgid "Primary Color"
 msgstr "Основний колір"
-
-#: functions.php:190
-msgid "Add widgets here to appear in your footer."
-msgstr "Додайте віджети сюди, для розміщення їх в підвал сайту."
 
 #: template-parts/content/content-none.php:39
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
@@ -141,10 +146,6 @@ msgstr "Вибачте, але за вашим пошуковим запитом
 #: template-parts/content/content-none.php:26
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "Готові опублікувати свій перший запис? <a href=\"%1$s\">Почніть звідси</a>."
-
-#: comments.php:95
-msgid "Previous"
-msgstr "Назад"
 
 #: header.php:24
 msgid "Skip to content"
@@ -158,17 +159,13 @@ msgstr "Меню соціальних посилань"
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Отакої! Сторінка не знайдена."
 
-#: template-parts/content/content-none.php:46
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Схоже, що не вдалося знайти те, що ви шукаєте. Можливо допоможе пошук."
-
 #. translators: %s: Name of current post. Only visible to screen readers
 #: template-parts/content/content.php:36
 #: template-parts/content/content-single.php:27
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Продовжити читання<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: single.php:37
+#: single.php:38
 msgid "Next Post"
 msgstr "Наступний запис"
 
@@ -189,17 +186,11 @@ msgstr "Нічого не знайдено"
 msgid "It looks like nothing was found at this location. Maybe try a search?"
 msgstr "За даною адресою нічого не знайдено. Спробуйте скористатися пошуком."
 
-#: image.php:52 template-parts/content/content.php:49
-#: template-parts/content/content-single.php:40
-#: template-parts/content/content-page.php:27
-msgid "Pages:"
-msgstr "Сторінки:"
-
-#: single.php:41
+#: single.php:42
 msgid "Previous post:"
 msgstr "Попередній запис:"
 
-#: single.php:38
+#: single.php:39
 msgid "Next post:"
 msgstr "Наступний запис:"
 
@@ -212,20 +203,10 @@ msgstr "Результати пошуку для:"
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Залишити коментар<span class=\"screen-reader-text\"> до %s</span>"
 
-#: inc/template-functions.php:82
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr "F Y"
-
-#: inc/template-functions.php:80
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr "Y"
-
-#. translators: %s: Name of current post. Only visible to screen readers.
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:120 template-parts/content/content-page.php:41
-#: template-parts/header/entry-header.php:32
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: template-parts/content/content-page.php:41
+#: template-parts/header/entry-header.php:32 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Редагувати <span class=\"screen-reader-text\">%s</span>"
 
@@ -233,20 +214,16 @@ msgstr "Редагувати <span class=\"screen-reader-text\">%s</span>"
 msgid "Primary"
 msgstr "Головна"
 
-#: comments.php:92 comments.php:95 comments.php:96
-msgid "Comments"
-msgstr "Коментарі"
-
 #: comments.php:35 comments.php:105 comments.php:107
 msgid "Leave a comment"
 msgstr "Залишити коментар"
 
-#: classes/class-twentynineteen-walker-comment.php:82
+#: classes/class-twentynineteen-walker-comment.php:95
 msgid "Edit"
 msgstr "Редагувати"
 
 #. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:74
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "%1$s at %2$s"
 msgstr "%1$s о %2$s"
 
@@ -277,16 +254,7 @@ msgstr "Один коментар до &ldquo;%s&rdquo;"
 msgid "Join the Conversation"
 msgstr "Долучитися до обговорення"
 
-#: inc/template-functions.php:92
-msgid "Archives:"
-msgstr "Архіви:"
-
-#: single.php:30
-msgctxt "Parent post link"
-msgid "<span class=\"meta-nav\">Published in</span><br/><span class=\"post-title\">%title</span>"
-msgstr "<span class=\"meta-nav\">Опубліковано у</span><br/><span class=\"post-title\">%title</span>"
-
-#: template-parts/post/author-bio.php:18
+#: template-parts/post/author-bio.php:26
 msgid "View more posts"
 msgstr "Переглянути більше записів"
 
@@ -323,12 +291,11 @@ msgstr "Архіви позначок:"
 msgid "Category Archives: "
 msgstr "Архіви категорій:"
 
-#. translators: %s: comment author link
-#: classes/class-twentynineteen-walker-comment.php:60
+#: classes/class-twentynineteen-walker-comment.php:67
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s <span class=\"screen-reader-text says\">пише:</span>"
 
-#: classes/class-twentynineteen-walker-comment.php:87
+#: classes/class-twentynineteen-walker-comment.php:100
 msgid "Your comment is awaiting moderation."
 msgstr "Ваш коментар чекає схвалення."
 
@@ -352,19 +319,20 @@ msgstr "Позначки:"
 msgid "Posted in"
 msgstr "Написано в"
 
-#: inc/template-tags.php:232
+#: inc/template-tags.php:234
 msgid "Older posts"
 msgstr "Старі записи"
 
-#: inc/template-tags.php:231
+#: inc/template-tags.php:230
 msgid "Newer posts"
 msgstr "Нові записи"
 
-#: single.php:40
+#: single.php:41
 msgid "Previous Post"
 msgstr "Попередній запис"
 
-#: template-parts/post/author-bio.php:13
+#. translators: %s: post author
+#: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr "Опубліковано %s"
 
@@ -376,6 +344,38 @@ msgstr "Сайт працює на %s."
 #: template-parts/post/discussion-meta.php:18
 msgid "No comments"
 msgstr "Немає коментарів"
+
+#: image.php:52 template-parts/content/content-page.php:27
+#: template-parts/content/content.php:49
+#: template-parts/content/content-single.php:40
+msgid "Pages:"
+msgstr "Сторінки:"
+
+#: template-parts/content/content-none.php:46
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Схоже не вдалося знайти те, що ви шукаєте. Можливо допоможе пошук."
+
+#: inc/template-functions.php:82
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: inc/template-functions.php:80
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: inc/template-functions.php:92
+msgid "Archives:"
+msgstr "Архіви:"
+
+#: comments.php:92 comments.php:95 comments.php:96
+msgid "Comments"
+msgstr "Коментарі"
+
+#: comments.php:95
+msgid "Previous"
+msgstr "Назад"
 
 #. Author of the theme
 msgid "the WordPress team"

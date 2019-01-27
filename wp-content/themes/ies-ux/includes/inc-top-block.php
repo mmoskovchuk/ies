@@ -9,7 +9,7 @@
                     <div class="top-block__wrap">
                         <a href="<?php echo home_url(); ?>">
                             <div class="top-block__logo">
-                                <img src="<?php bloginfo('template_url'); ?>/img/logo-new-year.png"
+                                <img src="<?php bloginfo('template_url'); ?>/img/logo.png"
                                      alt="<?php bloginfo('name'); ?>" class="top-block__logo-big"/>
                                 <span class="top-block__logo-tagline"><?php bloginfo('description'); ?></span>
                             </div>
