@@ -27,11 +27,12 @@ class Nextend_SmartSlider3 extends ET_Builder_Module {
     public function add_styles_scripts() {
         ?>
         <script type="text/javascript">
+            window.SmartSlider3IframeUrl = <?php echo json_encode(site_url('') . '?n2prerender=1&n2app=smartslider&n2controller=slider&n2action=iframe&h=' . sha1(NONCE_SALT . date('Y-m-d'))); ?>;
+
             <?php
             echo file_get_contents(NEXTEND_SMARTSLIDER_3 . '/includes/iframe.min.js');
         
             ?>
-            window.SmartSlider3IframeUrl = <?php echo json_encode(site_url('') . '?n2prerender=1&n2app=smartslider&n2controller=slider&n2action=iframe'); ?>;
         </script>
         <?php
     }
@@ -69,9 +70,11 @@ class Nextend_SmartSlider3 extends ET_Builder_Module {
                 $options[$slider['id']] = $slider['title'] . ' #' . $slider['id'];
             }
         }
+        reset($options);
 
         return array(
             'slider' => array(
+                'default'         => key($options),
                 'label'           => 'Slider',
                 'option_category' => 'basic_option',
                 'type'            => 'select',

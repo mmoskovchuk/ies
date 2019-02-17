@@ -23,6 +23,9 @@
                     <!-- SIDEBAR-POLL-BLOCK -->
                     <?php get_template_part('includes/inc', 'sidebar-poll-block'); ?>
 
+                    <!-- SIDEBAR-QR-BLOCK -->
+                    <?php get_template_part('includes/inc', 'sidebar-qr-block'); ?>
+
                 </aside>
 
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-class Nextend_FullwidthSmartSlider3 extends Nextend_SmartSlider3 {
+class Nextend_SmartSlider3Fullwidth extends Nextend_SmartSlider3 {
 
     public function init() {
         $this->name       = 'Smart Slider 3';
@@ -10,4 +10,4 @@ class Nextend_FullwidthSmartSlider3 extends Nextend_SmartSlider3 {
     }
 }
 
-new Nextend_FullwidthSmartSlider3();
+new Nextend_SmartSlider3Fullwidth();

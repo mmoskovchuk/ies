@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.0.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-12-27 14:42:53+0000\n"
+"PO-Revision-Date: 2019-01-09 20:58:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1839,7 +1839,7 @@ msgstr "Ви хочете опублікувати запис як особис�
 
 #: wp-includes/js/dist/editor.js:28921
 msgid "Move to trash"
-msgstr "Перемістити в корзину"
+msgstr "Перемістити в кошик"
 
 #: wp-includes/js/dist/editor.js:28813 wp-includes/js/dist/editor.js:28818
 msgid "Add title"
@@ -9486,7 +9486,7 @@ msgstr "Ви можете бачити всі коментарі до цього
 #: wp-includes/media-template.php:438 wp-includes/media-template.php:541
 msgctxt "verb"
 msgid "Trash"
-msgstr "Перемістити до кошика"
+msgstr "Видалити"
 
 #: wp-includes/class-wp-editor.php:1169
 msgid "Add to Dictionary"
@@ -9499,12 +9499,12 @@ msgstr "Колір меж"
 #: wp-includes/class-wp-editor.php:1206
 msgctxt "horizontal table cell alignment"
 msgid "H Align"
-msgstr "Горизонтальне вирівнювання"
+msgstr "Вирівнювання по горизонталі"
 
 #: wp-includes/class-wp-editor.php:1211
 msgctxt "vertical table cell alignment"
 msgid "V Align"
-msgstr "Вертикальне вирівнювання"
+msgstr "Вирівнювання по вертикалі"
 
 #. translators: Date query invalid date message: 1: invalid value, 2: type of
 #. value, 3: minimum valid value, 4: maximum valid value
