@@ -1,6 +1,5 @@
 <section class="top-block">
     <div class="container">
-        <div class="row">
 
             <div class="top-block__info">
 
@@ -67,6 +66,6 @@
                 <?php } ?>
             </div>
             <div class="clear"></div>
-        </div>
+
     </div>
 </section>

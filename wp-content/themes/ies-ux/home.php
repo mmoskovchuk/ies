@@ -15,7 +15,7 @@
     <!--CONTENT-->
     <section class="content-block">
         <div class="container">
-            <div class="row content-block__wrap 11">
+            <div class="content-block__wrap">
 
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 content-block__order-1">
                     <?php get_template_part('loop'); ?>
