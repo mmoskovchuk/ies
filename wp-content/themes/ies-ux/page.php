@@ -21,17 +21,30 @@
 
                     <aside class="sidebar">
 
-                        <!-- SIDEBAR-MENU-BLOCK -->
-                        <?php get_template_part('includes/inc', 'sidebar-menu-block'); ?>
+                        <?php if (is_page(array('298', '123'))): ?>
+                            <!-- SIDEBAR-MENU-BLOCK-DEPARTMENT -->
+                            <?php get_template_part('includes/inc', 'sidebar-menu-block-department'); ?>
+                        <?php endif; ?>
 
-                        <!-- SIDEBAR-MAP-BLOCK -->
-                        <?php get_template_part('includes/inc', 'sidebar-map-block'); ?>
+                        <?php if (!is_page(array('298', '123'))): ?>
+
+                            <!-- SIDEBAR-MENU-BLOCK -->
+                            <?php get_template_part('includes/inc', 'sidebar-menu-block'); ?>
+
+
+                            <!-- SIDEBAR-MAP-BLOCK -->
+                            <?php get_template_part('includes/inc', 'sidebar-map-block'); ?>
+
+
+                            <!-- SIDEBAR-QR-BLOCK -->
+                            <?php get_template_part('includes/inc', 'sidebar-qr-block'); ?>
+
+                        <?php endif; ?>
 
                         <!-- SIDEBAR-POLL-BLOCK -->
                         <?php get_template_part('includes/inc', 'sidebar-poll-block'); ?>
 
-                        <!-- SIDEBAR-QR-BLOCK -->
-                        <?php get_template_part('includes/inc', 'sidebar-qr-block'); ?>
+
 
                     </aside>
 

@@ -163,6 +163,8 @@ add_filter('login_errors',create_function('$a', "return null;"));
 register_nav_menus( array(
     'nav' => 'Navigation',
     'sidebar_menu' => 'Sidebar Menu (front)',
+    'sidebar_menu_department_ecology' => 'Sidebar Menu Ecology Department',
+    'sidebar_menu_department_land_management' => 'Sidebar Menu Land Management Department',
 ));
 
 //REGISTRATION SIDEBAR
