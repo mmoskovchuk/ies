@@ -17,5 +17,8 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8"
+  },
+  "dependencies": {
+    "vue-resource": "^1.5.1"
   }
 }

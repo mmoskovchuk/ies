@@ -30,7 +30,7 @@
                         <?php get_template_part('includes/inc', 'sidebar-menu-block'); ?>
 
                         <!-- SIDEBAR-MAP-BLOCK -->
-                        <?php get_template_part('includes/inc', 'sidebar-map-block'); ?>
+                        <?php /*get_template_part('includes/inc', 'sidebar-map-block');*/ ?>
 
                         <!-- SIDEBAR-POLL-BLOCK -->
                         <?php get_template_part('includes/inc', 'sidebar-poll-block'); ?>

@@ -14,5 +14,8 @@
 
     <?php endif; wp_reset_query(); ?>
 
+    <div class="content-block__all-ad-wrap">
+        <a href="/oholoshennia"><i class="far fa-list-alt"></i>&nbsp;Всі оголошення</a>
+    </div>
 
 </div>

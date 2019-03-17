@@ -326,6 +326,45 @@
 
     }
   }
+  &__ad-block {
+    display: flex;
+    align-items: center;
+    background-color: @c5;
+    padding: 9px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e7e7e7;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: 425px) {
+      flex-direction: column;
+    }
+    > a {
+      color: @c2;
+      //text-decoration: none;
+    }
+  }
+  &__all-ad-wrap {
+    font-family: @roboto;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    background-color: @c5;
+    transition: 0.3s;
+    &:hover {
+      box-shadow: 0 2px 4px #b8b8b8;
+    }
+    > a {
+      text-align: center;
+      width: 100%;
+      color: @c2;
+      text-decoration: none;
+      //text-transform: uppercase;
+      padding: 5px 5px;
+    }
+  }
+
   &__news-wrap {
     margin-top: 25px;
   }
@@ -343,6 +382,10 @@
     width: 100%;
     font-family: @roboto;
     margin-left: 15px;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     > h3 {
       font-size: 14px;
       font-weight: 500;
@@ -365,12 +408,13 @@
     font-family: @roboto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     > span {
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 400;
-      color: @c6;
+      color: rgba(36, 40, 42, 0.5);
       svg {
-        font-size: 15px;
+        font-size: 10px;
         margin-right: 2px;
       }
     }
@@ -406,7 +450,7 @@
       width: 100%;
       color: @c2;
       text-decoration: none;
-      text-transform: uppercase;
+      //text-transform: uppercase;
       padding: 5px 5px;
     }
   }
@@ -421,12 +465,28 @@
       margin: 0 0 10px 0;
     }
     &_date {
-      margin-top: 10px;
+      color: @c8;
+      font-size: 10px;
     }
     &_info-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+    &_post-views {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      span {
+        color: @c8;
+        font-size: 10px;
+      }
+    }
+    &_atr-post-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
     }
   }
   .site-pagination {
@@ -748,7 +808,7 @@
   }
   .main {
     display: block;
-    height: 100%;
+    height: auto;
   }
   .sidebar {
     margin-bottom: 50px;

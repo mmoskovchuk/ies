@@ -40,7 +40,7 @@
                                     </p>
                                     <div class="content-block__news-info-block">
                                     <span>
-                                        <i class="far fa-calendar-alt"></i> <?php the_date(); ?>
+                                       <?php the_date(); ?>
                                     </span>
                                         <a href="<?php the_permalink(); ?>">
                                             Читати далі <i class="fas fa-angle-double-right"></i>
@@ -65,7 +65,7 @@
                                     </p>
                                     <div class="content-block__news-info-block">
                                     <span>
-                                        <i class="far fa-calendar-alt"></i> <?php the_date(); ?>
+                                        <?php the_date(); ?>
                                     </span>
                                         <a href="<?php the_permalink(); ?>">
                                             Читати далі <i class="fas fa-angle-double-right"></i>
