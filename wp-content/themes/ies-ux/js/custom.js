@@ -152,7 +152,7 @@ jQuery(document).ready(function($) {
         var str = $(this).serialize();
         $.ajax({
             type: "POST",
-            url: "//ies.nau.edu.ua/wp-content/themes/ies-ux/mail.php",      // здесь указываем путь ко второму файлу
+            url: "//febit.nau.edu.ua/wp-content/themes/ies-ux/mail.php",      // здесь указываем путь ко второму файлу
             data: str,
             success: function(msg) {
                 if(msg == 'OK') {

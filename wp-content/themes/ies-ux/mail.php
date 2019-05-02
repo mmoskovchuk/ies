@@ -21,7 +21,7 @@ if (!$captcha) {
     echo '<p>Ви не поставили галочку в формі captcha.<br> Лист НЕ відправлено.</p>';
     exit;
 }
-$secretKey = "6Lfb6oEUAAAAAM45MANnd4O58LRQ8qpuHqVHGJMo";
+$secretKey = "6Lf-fqEUAAAAAOK8H5EoJRyj8XEoFWu8c4JtsR3n";
 $ip = $_SERVER['REMOTE_ADDR'];
 $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
 $responseKeys = json_decode($response, true);
@@ -30,7 +30,7 @@ if (intval($responseKeys["success"]) !== 1) {
 } else {
 
     $address = "max.moskovchuk@gmail.com";    // ВНИМАНИЕ! Здесь указываем адрес электронной почты на которую будут приходить письма
-    $mes = "[ies.nau.edu.ua] " . $name . "\n\n";
+    $mes = "[febit.nau.edu.ua] " . $name . "\n\n";
     $headers .= "Content-type: text/html; charset=\"utf-8\"";
     $message = wordwrap($message, 70, "\r\n");
     $send = mail($address, $mes, "$message \r\n | Надіслано від: $email", $headers);

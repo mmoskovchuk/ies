@@ -1,4 +1,4 @@
-<div class="content-block__ad-wrap">
+<div class="content-block__notification-wrap">
 
     <h2 class="title-ribbon">Оголошення</h2>
 
@@ -14,7 +14,7 @@
 
     <?php endif; wp_reset_query(); ?>
 
-    <div class="content-block__all-ad-wrap">
+    <div class="content-block__all-notification-wrap">
         <a href="/oholoshennia"><i class="far fa-list-alt"></i>&nbsp;Всі оголошення</a>
     </div>
 

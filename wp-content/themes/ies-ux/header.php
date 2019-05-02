@@ -27,7 +27,7 @@
     <script src='https://www.google.com/recaptcha/api.js?hl=uk'></script>
 
     <?php if (is_front_page()) : ?>
-        <link rel="alternate" hreflang="x-default" href="//ies.nau.edu.ua"/>
+        <link rel="alternate" hreflang="x-default" href="//febit.nau.edu.ua"/>
     <?php endif; ?>
 
     <?php wp_head(); ?>
@@ -80,7 +80,7 @@ $additional_body_class = 'page-' . $current_page;
                 <ul class="ajax-search"></ul>
             </div>
             <div class="header__social-icon">
-                <a rel="nofollow" href="//www.facebook.com/groups/ies.nau.edu.ua/" target="_blank">
+                <a rel="nofollow" href="//www.facebook.com/groups/febit.nau.edu.ua/" target="_blank">
                     <i class="fab fa-facebook-f fa-2x"></i>
                 </a>
                 <a rel="nofollow" href="//m.me/162316441371731" target="_blank">

@@ -51,7 +51,7 @@
 
 
                         <?php
-                        $stati_children = new WP_Query('posts_per_page=6&post_type=page&post_parent=293');
+                        $stati_children = new WP_Query('posts_per_page=7&post_type=page&post_parent=293');
 
                         if ($stati_children->have_posts()) :
                             while ($stati_children->have_posts()): $stati_children->the_post();

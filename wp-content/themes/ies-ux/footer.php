@@ -12,11 +12,13 @@
                     <h4>Адреса факультету:</h4>
                     <p>03058, Україна</p>
                     <p>м.Київ, просп.Космонавта Комарова 1</p>
+                    <p>корпус 5, ауд. 202, тел. 406-78-90;</p>
+                    <p>корпус 3, ауд. 3.416, тел. 406-77-65</p>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 footer__top-block">
                 <div>
-                    <h4>Дирекція факультету:</h4>
+                    <h4>Деканат факультету:</h4>
                     <p>ауд. 5-202, тел.: +38 (044) 406-78-90</p>
                     <p>тел/факс: +38 (044) 406-77-65</p>
                     <p>(обідня перерва з 12:00 до 13:00)</p>
@@ -52,7 +54,7 @@
                             <textarea id="message" class="textarea" name="message" rows="3" cols="60" data-message="Будь-ласка, введіть Ваше повідомлення"
                                       required></textarea>
                             <!-- antispam code -->
-                            <div class="g-recaptcha" data-sitekey="6Lfb6oEUAAAAALpXWktPIpAcKYaGkQzyMeVJS5ZJ" style="transform:scale(0.77);-webkit-transform:scale(0.77); width: 260px;" data-theme="dark"></div>
+                            <div class="g-recaptcha" data-sitekey="6Lf-fqEUAAAAABOq1TEcOGdxYF84ozPvD62lWz55" style="transform:scale(0.77);-webkit-transform:scale(0.77); width: 260px;" data-theme="dark"></div>
                         </div>
                         <button value="Submit" id="submit" class="contact-form__submit" type="submit"><i class="fa fa-paper-plane"></i>
                             Надіслати</button>
